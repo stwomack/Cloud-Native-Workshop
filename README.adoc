@@ -1,29 +1,34 @@
-= Pivotal Cloud Foundry 101 Workshop
+= Cloud Native Workshop
+
+== Description
+
+Join Pivotal technologists for this half-day workshop where you will discover how you can accelerate software development on a modern cloud platform without compromising operations.
+
+In this workshop you will learn about developing and deploying cloud-native applications using production-ready industry best practices. You will also get hands-on experience as you use Pivotal’s Cloud Foundry platform to quickly deploy microservice applications developed using Spring Boot.
+
+At the conclusion of this workshop, attendees take will have the knowledge and experience necessary to start the journey towards delivering cloud-native applications with the Pivotal Cloud Foundry platform.
 
 == Schedule
-
-This one day hands-on classroom style session will provide developers (and operators) with hands on experience with Pivotal Cloud Foundry concepts, architecture and fundamentals of pushing code and building applications. The session includes presentations, demos and hands on labs
-
-12:30 PM - 1:00 PM::
- * Session 1: _Welcome to the Cloud Native Enterprise_ 
-1:00 PM - 1:30 PM::
- * Demo: Pushing your first app, Apps Manager, Ops Manager_
-1:30 PM - 1:45 PM:: Break
-1:45 PM - 3:00 PM:: 
-* Session 2: _Pivotal Cloud Foundry Architecture and Containers_
-* Session 2: _Pivotal Cloud Foundry for Operators_
-3:00 PM - 3:15 PM:: Break
-3:15 PM - 3:30 PM:: 
-* Session 3: _Pivotal Cloud Foundry Services_
-3:30 PM - 5:30 PM:: 
-* Labs - Push, Scale, Bind, Monitor and Integrate your app
+8:30 – 9:00 AM::
+ * _Registration and Breakfast_
+9:00 – 9:30 AM::
+ * _Cloud Native Architectures and Frameworks_ - Overview of cloud native industry trends and practices including: 12 factor apps, microservices, and Spring Boot, and Spring Cloud
+9:30 – 10:30 AM::
+ * _Pivotal Cloud Foundry - The Cloud Native Platform_ - An overview of Pivotal Cloud Foundry and its Architecture
+10:30 – 10:45 AM::
+ * _Break_
+10:45 – 11:00 AM::
+ * _Demo: The developer and operator experiences_ - Pushing apps, the Cloud Foundry CLI, PCF Apps Manager, and PCF Ops Manager
+11:00 – 11:50 AM::
+ * _Hands-on Labs_ (push, scale, bind, monitor)
+11:50 AM - 12:00 PM::
+ * _Wrap Up, Q&A, Feedback_
 
 == Course Materials
 
 * Session 1: link:presentations/Session_1_Cloud_Native_Enterprise.pptx[Welcome to the Cloud Native Enterprise]
 * Session 2: link:presentations/Session_2_Architecture_And_Operations.pptx[Pivotal Cloud Foundry Architecture and Operations]
 * Session 3: link:presentations/Session_3_Services_Overview.pptx[Pivotal Cloud Foundry Services]
-
 
 * Developer Workshop
 ** Lab 1 - From Zero to Pushing Your First Application
@@ -36,3 +41,4 @@ This one day hands-on classroom style session will provide developers (and opera
 ** link:labs/lab5/lab.adoc[Advanced Lab - Deploying a .NET Application]
 ** link:cf-spring-trader/README.md[Advanced Lab - Spring Cloud Services, _**Java** Only_]
 ** link:labs/lab5/continuous-delivery-lab.adoc[Advanced Lab - Jenkins Integration]
+
