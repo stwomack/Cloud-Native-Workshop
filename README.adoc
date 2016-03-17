@@ -35,8 +35,8 @@ Space is limited. Reserve your seat in the link:http://pivotal.io/event/cloud-na
 
 == Course Materials
 
-* Session 1: link:presentations/Session_1-Cloud_Native_Architectures_and_Frameworks.pptx[Welcome to the Cloud Native Enterprise]
-* Session 2: link:presentations/Session_2-Pivotal_Cloud_Foundry-The_Cloud_Native_Platform.pptx[Pivotal Cloud Foundry Architecture and Operations]
+* Session 1: link:presentations/Session_1-Cloud_Native_Architectures_and_Frameworks.pptx[Cloud Native Architectures and Frameworks]
+* Session 2: link:presentations/Session_2-Pivotal_Cloud_Foundry-The_Cloud_Native_Platform.pptx[Pivotal Cloud Foundry - The Cloud Native Platform]
 
 * Developer Workshop
 ** Lab 1 - From Zero to Pushing Your First Application
