@@ -8,6 +8,12 @@ The session includes presentations, demos and a hands-on lab. It will cover gene
 
 Space is limited. Reserve your seat in the link:http://pivotal.io/event/cloud-native-workshop/st-louis[St. Louis workshop] today.
 
+== Pre-requisites
+
+* If you intend to participate in the hands-on lab, please bring your laptop.
+* Pre-install the link:https://github.com/cloudfoundry/cli#downloads[Cloud Foundry CLI] in order to perform lab exercises.
+* Create a link:http://run.pivotal.io/[Pivotal Cloud Foundry] trial account to run the lab and continue your own work after the workshop is complete.
+
 == Schedule
 8:30 – 9:00 AM - Registration and Breakfast::
 
