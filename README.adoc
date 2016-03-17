@@ -2,27 +2,34 @@
 
 == Description
 
-Join Pivotal technologists for this half-day workshop where you will discover how you can accelerate software development on a modern cloud platform without compromising operations.
+Please join Pivotal for a half-day hands-on workshop to introduce key concepts in modern cloud native application development and delivery. This half-day workshop will provide developers (and operators) with experience with Pivotal Cloud Foundry concepts, architecture, and the fundamentals of pushing code and building applications.
 
-In this workshop you will learn about developing and deploying cloud-native applications using production-ready industry best practices. You will also get hands-on experience as you use Pivotal’s Cloud Foundry platform to quickly deploy microservice applications developed using Spring Boot.
-
-At the conclusion of this workshop, attendees take will have the knowledge and experience necessary to start the journey towards delivering cloud-native applications with the Pivotal Cloud Foundry platform.
+The session includes presentations, demos and a hands-on lab. It will cover general cloud native application trends and principles, an overview of Pivotal Cloud Foundry and relevant Spring projects, and how you can get involved as we go on this cloud native journey.
 
 == Schedule
-8:30 – 9:00 AM::
- * _Registration and Breakfast_
-9:00 – 9:30 AM::
- * _Cloud Native Architectures and Frameworks_ - Overview of cloud native industry trends and practices including: 12 factor apps, microservices, and Spring Boot, and Spring Cloud
-9:30 – 10:30 AM::
- * _Pivotal Cloud Foundry - The Cloud Native Platform_ - An overview of Pivotal Cloud Foundry and its Architecture
-10:30 – 10:45 AM::
- * _Break_
-10:45 – 11:00 AM::
- * _Demo: The developer and operator experiences_ - Pushing apps, the Cloud Foundry CLI, PCF Apps Manager, and PCF Ops Manager
-11:00 – 11:50 AM::
- * _Hands-on Labs_ (push, scale, bind, monitor)
-11:50 AM - 12:00 PM::
- * _Wrap Up, Q&A, Feedback_
+8:30 – 9:00 AM - Registration and Breakfast::
+
+9:00 – 9:30 AM - Cloud Native Architectures and Frameworks::
+ 
+  Overview of cloud native industry trends and practices including: 12 factor apps, microservices, and Spring Boot, and Spring Cloud
+
+9:30 – 10:30 AM - Pivotal Cloud Foundry - The Cloud Native Platform::
+ 
+  An overview of Pivotal Cloud Foundry and its Architecture
+
+10:30 – 10:45 AM - Break::
+
+10:45 – 11:00 AM - Demo: The developer and operator experiences::
+  
+  Pushing apps, the Cloud Foundry CLI, PCF Apps Manager, and PCF Ops Manager
+
+11:00 – 11:50 AM - Hands-on Labs::
+
+  Push, scale, bind, and monitor apps
+
+11:50 AM - 12:00 PM - Wrap Up::
+
+  Questions & Answers, Feedback
 
 == Course Materials
 
