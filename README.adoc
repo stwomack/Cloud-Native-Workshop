@@ -20,7 +20,7 @@ Start by downloading the course materials. This can be accomplished either throu
 
 ```
 $ git clone https://github.com/cbusch-pivotal/Cloud-Native-Workshop
-$ cd SpringCloudWorkshop/
+$ cd Cloud-Native-Workshop/
 $ git fetch --all
 ```
 
