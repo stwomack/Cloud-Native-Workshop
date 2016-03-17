@@ -13,7 +13,7 @@ Space is limited. Reserve your seat in the link:http://pivotal.io/event/cloud-na
 
 9:00 – 9:30 AM - Cloud Native Architectures and Frameworks::
  
-  Overview of cloud native industry trends and practices including: 12 factor apps, microservices, and Spring Boot, and Spring Cloud
+  Overview of cloud native industry trends and practices including: 12-factor apps, microservices, Spring Boot, and Spring Cloud
 
 9:30 – 10:30 AM - Pivotal Cloud Foundry - The Cloud Native Platform::
  
