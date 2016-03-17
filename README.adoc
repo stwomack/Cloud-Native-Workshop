@@ -55,4 +55,3 @@ Space is limited. Reserve your seat in the link:http://pivotal.io/event/cloud-na
 
 * Chris Busch, Platform Architect, St. Louis
 * Steve Womack, Platform Architect, St. Louis
-
