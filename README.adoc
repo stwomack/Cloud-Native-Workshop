@@ -49,3 +49,8 @@ The session includes presentations, demos and a hands-on lab. It will cover gene
 ** link:cf-spring-trader/README.md[Advanced Lab - Spring Cloud Services, _**Java** Only_]
 ** link:labs/lab5/continuous-delivery-lab.adoc[Advanced Lab - Jenkins Integration]
 
+== Speakers
+
+* Chris Busch, Platform Architect, St. Louis
+* Steve Womack, Platform Architect, St. Louis
+
