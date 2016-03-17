@@ -6,6 +6,8 @@ Please join Pivotal for a half-day hands-on workshop to introduce key concepts i
 
 The session includes presentations, demos and a hands-on lab. It will cover general cloud native application trends and principles, an overview of Pivotal Cloud Foundry and relevant Spring projects, and how you can get involved as we go on this cloud native journey.
 
+Space is limited. Reserve your seat in the link:http://pivotal.io/event/cloud-native-workshop/st-louis[St. Louis workshop] today.
+
 == Schedule
 8:30 – 9:00 AM - Registration and Breakfast::
 
