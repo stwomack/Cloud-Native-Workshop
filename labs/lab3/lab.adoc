@@ -12,7 +12,7 @@ In the next two labs we'll explore Pivotal Cloudfoundry operations.
 +
 ----
 $ cf scale -i 3 workshop
-Scaling app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
+Scaling app workshop in org instructor-org / space development as instructor...
 OK
 ----
 +
@@ -23,21 +23,21 @@ In reporting `OK`, the CLI is letting you know that the additional requested ins
 ====
 ----
 $ cf app workshop
-Showing health and status for app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
+Showing health and status for app workshop in org instructor-org / space development as instructor...
 OK
 
 requested state: started
-instances: 1/3
+instances: 3/3
 usage: 512M x 3 instances
-urls: workshop.vert.fe.gopivotal.com, workshop-queasier-backup.vert.fe.gopivotal.com
-last uploaded: Fri Aug 7 13:15:14 UTC 2015
+urls: workshop-haunted-slickenside.cfapps.io
+last uploaded: Mon Mar 21 21:38:44 UTC 2016
 stack: cflinuxfs2
-buildpack: java-buildpack=v3.0-offline-https://github.com/cloudfoundry/java-buildpack.git#3bd15e1 open-jdk-jre=1.8.0_40 spring-auto-reconfiguration=1.7.0_RELEASE tomcat-access-logging-support=2.4.0_RELEASE tomcat-instance=8.0.21 tomcat-lifecycle-support=2.4.0_REL...
+buildpack: java-buildpack=v3.6-https://github.com/cloudfoundry/java-buildpack.git#5194155 java-main java-opts open-jdk-like-jre=1.8.0_73 open-jdk-like-memory-calculator=2.0.1_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
 
-     state      since                    cpu    memory           disk           details
-#0   running    2015-08-07 11:33:21 AM   0.1%   477.9M of 512M   144.4M of 1G  <1>
-#1   starting   2015-08-07 12:42:56 PM   0.0%   0 of 0           0 of 0  <2>
-#2   starting   2015-08-07 12:42:56 PM   0.0%   0 of 0           0 of 0
+     state     since                    cpu    memory           disk           details
+#0   running   2016-03-21 04:43:55 PM   0.1%   349.9M of 512M   153.4M of 1G <1>
+#1   starting  2016-03-21 05:05:31 PM   0.1%   0 of 0           0 of 0 <2>
+#2   starting  2016-03-21 05:05:31 PM   0.0%   0 of 0           0 of 0
 ----
 <1> This application instance has completed the startup process and is actually able to accept requests.
 <2> This application instance is still starting and will not have any requests routed to it.
@@ -47,21 +47,21 @@ buildpack: java-buildpack=v3.0-offline-https://github.com/cloudfoundry/java-buil
 +
 ----
 $ cf app workshop
-Showing health and status for app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
+Showing health and status for app workshop in org instructor-org / space development as instructor...
 OK
 
 requested state: started
 instances: 3/3
 usage: 512M x 3 instances
-urls: workshop.vert.fe.gopivotal.com, workshop-queasier-backup.vert.fe.gopivotal.com
-last uploaded: Fri Aug 7 13:15:14 UTC 2015
+urls: workshop-haunted-slickenside.cfapps.io
+last uploaded: Mon Mar 21 21:38:44 UTC 2016
 stack: cflinuxfs2
-buildpack: java-buildpack=v3.0-offline-https://github.com/cloudfoundry/java-buildpack.git#3bd15e1 open-jdk-jre=1.8.0_40 spring-auto-reconfiguration=1.7.0_RELEASE tomcat-access-logging-support=2.4.0_RELEASE tomcat-instance=8.0.21 tomcat-lifecycle-support=2.4.0_REL...
+buildpack: java-buildpack=v3.6-https://github.com/cloudfoundry/java-buildpack.git#5194155 java-main java-opts open-jdk-like-jre=1.8.0_73 open-jdk-like-memory-calculator=2.0.1_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
 
      state     since                    cpu    memory           disk           details
-#0   running   2015-08-07 11:33:21 AM   0.1%   477.9M of 512M   144.4M of 1G
-#1   running   2015-08-07 12:43:04 PM   0.2%   396.2M of 512M   144.4M of 1G
-#2   running   2015-08-07 12:43:04 PM   0.2%   394.8M of 512M   144.4M of 1G
+#0   running   2016-03-21 04:43:55 PM   0.1%   349.9M of 512M   153.4M of 1G
+#1   running   2016-03-21 05:05:49 PM   0.1%   346.7M of 512M   153.4M of 1G
+#2   running   2016-03-21 05:05:49 PM   0.2%   346M of 512M     153.4M of 1G
 ----
 
 . Revisit the application route in the browser.
@@ -81,7 +81,7 @@ This makes for very dynamic and rapid reconfiguration!
 +
 ----
 $ cf scale -i 1 workshop
-Scaling app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
+Scaling app workshop in org instructor-org / space development as instructor...
 OK
 ----
 
@@ -89,19 +89,19 @@ OK
 +
 ----
 $ cf app workshop
-Showing health and status for app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
+Showing health and status for app workshop in org instructor-org / space development as instructor...
 OK
 
 requested state: started
 instances: 1/1
 usage: 512M x 1 instances
-urls: workshop.vert.fe.gopivotal.com, workshop-queasier-backup.vert.fe.gopivotal.com
-last uploaded: Fri Aug 7 13:15:14 UTC 2015
+urls: workshop-haunted-slickenside.cfapps.io
+last uploaded: Mon Mar 21 21:38:44 UTC 2016
 stack: cflinuxfs2
-buildpack: java-buildpack=v3.0-offline-https://github.com/cloudfoundry/java-buildpack.git#3bd15e1 open-jdk-jre=1.8.0_40 spring-auto-reconfiguration=1.7.0_RELEASE tomcat-access-logging-support=2.4.0_RELEASE tomcat-instance=8.0.21 tomcat-lifecycle-support=2.4.0_REL...
+buildpack: java-buildpack=v3.6-https://github.com/cloudfoundry/java-buildpack.git#5194155 java-main java-opts open-jdk-like-jre=1.8.0_73 open-jdk-like-memory-calculator=2.0.1_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
 
      state     since                    cpu    memory           disk           details
-#0   running   2015-08-07 11:33:21 AM   0.1%   477.9M of 512M   144.4M of 1G
+#0   running   2016-03-21 04:43:55 PM   0.1%   352.6M of 512M   153.4M of 1G
 ----
 +
 As you can see, we're back down to only one instance running, and it is in fact the original index 0 that we started with.
@@ -117,19 +117,19 @@ The first is available via the CLI. Just type:
 
 ----
 $ cf app workshop
-Showing health and status for app workshop in org TELCO / space zwickey as azwickey@pivotal.io...
+Showing health and status for app workshop in org instructor-org / space development as instructor...
 OK
 
 requested state: started
-instances: 3/3
-usage: 512M x 3 instances
-urls: workshop-leishmanial-preobligation.vert.fe.gopivotal.com
-last uploaded: Fri Sep 25 15:07:25 UTC 2015
+instances: 1/1
+usage: 512M x 1 instances
+urls: workshop-haunted-slickenside.cfapps.io
+last uploaded: Mon Mar 21 21:38:44 UTC 2016
 stack: cflinuxfs2
-buildpack: java-buildpack=v3.1.1-offline-https://github.com/cloudfoundry/java-buildpack#7a538fb java-main java-opts open-jdk-like-jre=1.8.0_51 open-jdk-like-memory-calculator=1.1.1_RELEASE spring-auto-reconfiguration=1.7.0_RELEASE
+buildpack: java-buildpack=v3.6-https://github.com/cloudfoundry/java-buildpack.git#5194155 java-main java-opts open-jdk-like-jre=1.8.0_73 open-jdk-like-memory-calculator=2.0.1_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
 
      state     since                    cpu    memory           disk           details
-#0   running   2015-09-25 11:11:33 AM   0.1%   411.6M of 512M   151.6M of 1G
+#0   running   2016-03-21 04:43:55 PM   0.1%   352.6M of 512M   153.4M of 1G
 ----
 
 and you'll see the list of routes in the section that says _urls_.
@@ -138,7 +138,7 @@ The second way is via the Apps Manager UI.  Click on the _Workshop_ application 
 
 image::lab2.png[]
 
-. We can easily add an additional route by clicking on _+ Map a Route_ and supplying the new hostname:
+. We can easily add an additional route by clicking on _+ Map a Route_ and supplying the new hostname. Use a unique name, not _instructor_, and then click _Map_:
 +
 image::lab3.png[]
 
