@@ -211,3 +211,5 @@ effective_procfile:
     -Xms382293K -XX:MaxMetaspaceSize=64M -XX:MetaspaceSize=64M -Xss995K -Daccess.logging.enabled=false
     -Dhttp.port=$PORT" $PWD/.java-buildpack/tomcat/bin/catalina.sh run
 ----
+
+link:/README.adoc#hands-on-labs-materials[Course Materials home] | link:/labs/lab4/lab.adoc[Lab 4 - Monitoring your Application]
