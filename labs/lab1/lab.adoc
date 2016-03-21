@@ -4,19 +4,29 @@
 
 . If you haven't already, download the latest release of the Cloud Foundry CLI from https://github.com/cloudfoundry/cli/releases for your operating system and install it.
 
+. Create a trial http://run.pivotal.io[Pivotal Web Services] account to use Pivotal’s web-hosted Cloud Foundry for labs 1 - 7.
+
 . Set the API target for the CLI: (set appropriate end point for your environment)
 +
+For a Pivotal Web Services account, use:
++
 ----
-$ cf api https://api.devcloudwest.inbcu.com --skip-ssl-validation
+$ cf api https://api.run.pivotal.io --skip-ssl-validation
+----
++
+Or, if you are using the Workshop PCF Instance student account:
++
+----
+$ cf api https://api.pcf1.fe.gopivotal.com --skip-ssl-validation
 ----
 
-. Login to Pivotal Cloudfoundry:
+. Login to Pivotal Cloudfoundry with your PWS credentials, or your workshop student account credentials:
 +
 ----
-$ cf login
+$ cf login -u student1
 ----
 +
-Follow the prompts
+And follow the prompts.
 
 == Push It!
 
