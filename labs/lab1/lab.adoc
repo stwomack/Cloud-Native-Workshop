@@ -180,4 +180,4 @@ $ cf stop <<app_name>>
 $ cf delete <<app_name>>
 ----
 
-link:/README.adoc#hands-on-labs-materials[Course Materials home] | link:/labs/lab_02/lab.adoc[Lab 2- Binding to Cloud Foundry Services]
+link:/README.adoc#hands-on-labs-materials[Course Materials home] | link:/labs/lab2/lab.adoc[Lab 2 - Binding to Cloud Foundry Services]
