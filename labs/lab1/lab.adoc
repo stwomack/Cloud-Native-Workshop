@@ -20,7 +20,7 @@ Or, if you are using the Workshop PCF Instance student account:
 $ cf api https://api.pcf1.fe.gopivotal.com --skip-ssl-validation
 ----
 
-. Login to Pivotal Cloudfoundry with your PWS credentials, or your workshop student account credentials:
+. Login to Pivotal Cloudfoundry with your PWS credentials, or your workshop student account credentials, for example:
 +
 ----
 $ cf login -u student1
@@ -143,7 +143,7 @@ Routes can actually be bound to multiple applications to support techniques such
 <7> Created container to stage teh application.
 <8> Here we see the version of the JRE that has been chosen and installed.
 <9> The complete package of your application and all of its necessary runtime components is called a _droplet_.
-Here the droplet is being uploaded to Pivotal Cloudfoundry's internal blobstore so that it can be easily copied to one or more _http://docs.cloudfoundry.org/concepts/architecture/execution-agent.html[Droplet Execution Agents (DEA's)]_ for execution.
+Here the droplet is being uploaded to Pivotal Cloudfoundry's internal blobstore so that it can be easily copied to one or more _http://docs.cloudfoundry.org/concepts/architecture/execution-agent.html[Droplet Execution Agents (DEA's)]_ or _https://docs.cloudfoundry.org/concepts/diego/diego-architecture.html[Diego Cell's]_ for execution.
 <10> The CLI tells you exactly what command and argument set was used to start your application.
 <11> Finally the CLI reports the current status of your application's health.
 ====
