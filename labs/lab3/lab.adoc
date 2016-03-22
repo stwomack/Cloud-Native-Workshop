@@ -187,7 +187,7 @@ drwxr-xr-x 3 vcap vcap 4096 Mar 21 21:43 tmp
 . To see the contents of the application directory, run the following command:
 +
 ----
-vcap@f8eg5grhrgj:~$ ls -al app <1> <2>
+vcap@f8eg5grhrgj:~$ ls -al app <1>
 total 40
 drwxr-xr-x 9 vcap root 4096 Mar 21 21:43 .
 drwx------ 6 vcap vcap 4096 Mar 22 13:36 ..
@@ -200,7 +200,7 @@ drwxr-xr-x 3 vcap vcap 4096 Mar 21 21:38 org
 drwxr-xr-x 5 vcap vcap 4096 Mar 21 21:38 static
 drwxr-xr-x 2 vcap vcap 4096 Mar 21 21:38 templates
 ----
-<1> The actual binaries of the application can be found in the /app folder
+<1> The actual binaries of the application can be found in the `/app` folder
 +
 
 . In addition to `cf ssh`, you can use other SSH clients such as `ssh`, `scp`, or `sftp` to access your application, as long as you have SSH permissions. See the https://docs.cloudfoundry.org/devguide/deploy-apps/ssh-apps.html[Application SSH Access without cf CLI] documentation for more information.
