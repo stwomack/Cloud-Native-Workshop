@@ -69,5 +69,3 @@ $ git fetch --all
 
 * Chris Busch, Platform Architect, cbusch@pivotal.io
 * Steve Womack, Platform Architect, swomack@pivotal.io
-
->>>>>>> ef20a170ee01cbd74af248760dd374fec1f0e1bf
