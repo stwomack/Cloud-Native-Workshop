@@ -2,22 +2,18 @@
 
 [abstract]
 --
-Pivotal Cloudfoundry makes the work of performing operations actions, such as scaling, doing a zero-downtime deploy, and managing application health very easy.
-In the this labs we'll continue to explore Pivotal Cloudfoundry application operations.
+Pivotal Cloud Foundry (PCF) makes the work of performing operations actions, such as scaling, zero-downtime deploys, and managing application health very easy. In the this lab, you will continue to explore PCF application operations.
 --
 
 == Tailing Application Logs
 
-One of the most important enablers of visibility into application behavior is logging.
-Effective management of logs has historically been very difficult.
-Cloud Foundry's https://github.com/cloudfoundry/loggregator[log aggregation] components simplify log management by assuming responsibility for it.
-Application developers need only log all messages to either `STDOUT` or `STDERR`, and the platform will capture these messages.
+One of the most important enablers of visibility into application behavior is logging.  Effective management of logs has historically been very difficult. Cloud Foundry's https://github.com/cloudfoundry/loggregator[log aggregation] components simplify log management by assuming responsibility for aggregating logs.  Application developers need only log all messages to either `STDOUT` or `STDERR`, and the platform will capture these messages.
 
 === For Developers
 
 Application developers can view application logs using the CF CLI.
 
-. Let's view recent log messages for the application.  For this lab you can use the Java, Ruby, or Node.js sample app.  In each of the commands below replace _workshop_ with the name of your deployed application:
+. Let's view recent log messages for the application.  For this lab, use the Java sample workshop app.
 +
 ----
 $ cf logs workshop --recent
@@ -28,47 +24,53 @@ Here are two interesting subsets of one output from that command:
 .CF Component Logs
 ====
 ----
-2015-02-13T14:45:39.40-0600 [RTR/0]      OUT cf-scale-boot-stockinged-rust.cfapps.io - [13/02/2015:20:45:39 +0000] "GET /css/bootstrap.min.css HTTP/1.1" 304 0 "http://cf-scale-boot-stockinged-rust.cfapps.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36" 10.10.66.88:50372 x_forwarded_for:"50.157.39.197" vcap_request_id:84cc1b7a-bb30-4355-7512-5adaf36ff767 response_time:0.013115764 app_id:7a428901-1691-4cce-b7f6-62d186c5cb55 <1>
-2015-02-13T14:45:39.40-0600 [RTR/1]      OUT cf-scale-boot-stockinged-rust.cfapps.io - [13/02/2015:20:45:39 +0000] "GET /img/LOGO_CloudFoundry_Large.png HTTP/1.1" 304 0 "http://cf-scale-boot-stockinged-rust.cfapps.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36" 10.10.66.88:24323 x_forwarded_for:"50.157.39.197" vcap_request_id:b3e2466b-6a41-4c6d-5b3d-0f70702c0ec1 response_time:0.010003444 app_id:7a428901-1691-4cce-b7f6-62d186c5cb55
-2015-02-13T15:04:33.09-0600 [API/1]      OUT Tried to stop app that never received a start event <2>
-2015-02-13T15:04:33.51-0600 [DEA/12]     OUT Starting app instance (index 2) with guid 7a428901-1691-4cce-b7f6-62d186c5cb55 <3>
-2015-02-13T15:04:33.71-0600 [DEA/4]      OUT Starting app instance (index 3) with guid 7a428901-1691-4cce-b7f6-62d186c5cb55
+2016-03-22T09:27:28.37-0500 [APP/0]      OUT 2016-03-22 14:27:28.373  INFO 14 --- [       Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2016-03-22T09:27:30.76-0500 [RTR/4]      OUT workshop-haunted-slickenside.cfapps.io - [22/03/2016:14:27:28 +0000] "GET /kill HTTP/1.1" 502 0 67 "http://workshop-haunted-slickenside.cfapps.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36" 10.10.66.45:28136 x_forwarded_for:"96.35.38.180" x_forwarded_proto:"http" <1> vcap_request_id:45cf0503-5988-446e-5fdc-ff9b04f4eb04 response_time:2.569998304 app_id:108c3e83-88ff-43af-a5b6-b356d346e0b8
+2016-03-22T09:27:30.78-0500 [APP/0]      OUT Exit status 255 <2>
+2016-03-22T09:27:30.78-0500 [CELL/0]     OUT Exit status 0
+2016-03-22T09:27:30.84-0500 [API/2]      OUT App instance exited with guid 108c3e83-88ff-43af-a5b6-b356d346e0b8 payload: {"instance"=>"537e99cc-b891-42d2-6d0c-885f80296926", "index"=>0, "reason"=>"CRASHED", "exit_description"=>"2 error(s) occurred:\n\n* 2 error(s) occurred:\n\n* Exited with status 255\n* cancelled\n* cancelled", "crash_count"=>1, "crash_timestamp"=>1458656850797105183, "version"=>"d34837f0-cb42-498f-adf2-cc506df42a98"}
+2016-03-22T09:27:31.04-0500 [CELL/0]     OUT Creating container <3>
 ----
 <1> An ``Apache-style'' access log event from the (Go)Router
 <2> An API log event that corresponds to an event as shown in `cf events`
-<3> A DEA log event indicating the start of an application instance on that DEA.
+<3> A CELL log event indicating the creation of an application container on CELL 0.
 ====
 +
 .Application Logs
 ====
 ----
-2015-02-13T16:01:50.28-0600 [App/0]      OUT 2015-02-13 22:01:50.282  INFO 36 --- [       runner-0] o.s.b.a.e.jmx.EndpointMBeanExporter      : Located managed bean 'autoConfigurationAuditEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=autoConfigurationAuditEndpoint]
-2015-02-13T16:01:50.28-0600 [App/0]      OUT 2015-02-13 22:01:50.287  INFO 36 --- [       runner-0] o.s.b.a.e.jmx.EndpointMBeanExporter      : Located managed bean 'shutdownEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=shutdownEndpoint]
-2015-02-13T16:01:50.29-0600 [App/0]      OUT 2015-02-13 22:01:50.299  INFO 36 --- [       runner-0] o.s.b.a.e.jmx.EndpointMBeanExporter      : Located managed bean 'configurationPropertiesReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=configurationPropertiesReportEndpoint]
-2015-02-13T16:01:50.36-0600 [App/0]      OUT 2015-02-13 22:01:50.359  INFO 36 --- [       runner-0] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 61316/http
-2015-02-13T16:01:50.36-0600 [App/0]      OUT Started...
-2015-02-13T16:01:50.36-0600 [App/0]      OUT 2015-02-13 22:01:50.364  INFO 36 --- [       runner-0] o.s.boot.SpringApplication               : Started application in 6.906 seconds (JVM running for 15.65)
+2016-03-22T09:28:08.85-0500 [APP/1]      OUT 2016-03-22 14:28:08.853  INFO 14 --- [           main] nfigurationApplicationContextInitializer : Adding cloud service auto-reconfiguration to ApplicationContext
+2016-03-22T09:28:08.87-0500 [APP/1]      OUT 2016-03-22 14:28:08.876  INFO 14 --- [           main] io.pivotal.workshop.WorkshopApplication  : Starting WorkshopApplication on f8edin7an5l with PID 14 (/home/vcap/app started by vcap in /home/vcap/app)
+2016-03-22T09:28:08.89-0500 [APP/2]      OUT 2016-03-22 14:28:08.897  INFO 16 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2016-03-22T09:28:09.00-0500 [APP/1]      OUT 2016-03-22 14:28:09.008  INFO 14 --- [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@839d6d: startup date [Tue Mar 22 14:28:09 UTC 2016]; root of context hierarchy
+2016-03-22T09:28:09.15-0500 [APP/2]      OUT 2016-03-22 14:28:09.156  INFO 16 --- [           main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-03-22T09:28:09.15-0500 [APP/2]      OUT 2016-03-22 14:28:09.157  INFO 16 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.26
 ----
 ====
 +
+.SSH activity
+====
+----
+2016-03-22T08:35:24.27-0500 [SSH/0]      OUT Successful remote access by 10.10.2.195:19968
+2016-03-22T08:49:30.31-0500 [SSH/0]      OUT Successful remote access by 10.10.66.204:25788
+----
+====
 As you can see, Cloud Foundry's log aggregation components capture both application logs and CF component logs relevant to your application.
 These events are properly interleaved based on time, giving you an accurate picture of events as they transpired across the system.
 
-. To get a running ``tail'' of the application logs rather than a dump, simply type:
+. To get a running _tail_ of the application logs rather than a dump, simply type:
 +
 ----
 $ cf logs workshop
 ----
 +
-You can try various things like refreshing the browser and triggering stop/start events to see logs being generated.
+You can try various things like refreshing the browser and triggering stop/start events to see logs being generated. Press `Ctrl-C` to exit the `cf logs workshop` tailing of the logs.
 
 === For Operators (OPTIONAL)
 
-Application operators will also enjoy commands like `cf logs`, but are often interested in long-term retention, indexing, and analysis of logs as well.
-Cloud Foundry currently only provides short-term retention of logs.
-To meet these needs, Cloud Foundry provides the ability to http://docs.cloudfoundry.org/devguide/services/log-management.html[drain logs to third-party providers.]
+Application operators will also enjoy commands like `cf logs`, but are often interested in long-term retention, indexing, and analysis of logs as well. Cloud Foundry currently only provides short-term retention of logs. To meet these needs, Cloud Foundry provides the ability to https://docs.pivotal.io/pivotalcf/devguide/services/log-management.html[drain logs to third-party providers.]
 
-In this section, we'll drain logs to a very simple provider called https://papertrailapp.com[Papertrail].
+In this section, you will drain logs to a very simple provider called https://papertrailapp.com[Papertrail].
 
 . Visit https://papertrailapp.com and create a free account.
 
@@ -88,11 +90,11 @@ image::papertrail_3.png[]
 +
 image::papertrail_4.png[]
 
-. We'll use a Cloud Foundry http://docs.cloudfoundry.org/devguide/services/user-provided.html[user-provided service instance] to create the log drain for our application using the URL + Port provided by Papertrail:
+. We'll use a Cloud Foundry http://docs.pivotal.io/pivotalcf/devguide/services/user-provided.html[user-provided service instance] to create the log drain for our application using the URL + Port provided by Papertrail:
 +
 ----
 $ cf cups workshop-logs -l syslog://logs2.papertrailapp.com:43882
-Creating user provided service workshop-logs in org TELCO / space gammon as admin...
+Creating user provided service workshop-logs in org instructor-org / space development as instructor...
 OK
 ----
 
@@ -100,7 +102,7 @@ OK
 +
 ----
 $ cf bind-service workshop workshop-logs
-Binding service workshop-logs to app workshop in org TELCO / space gammon as admin...
+Binding service workshop-logs to app workshop in org instructor-org / space development as instructor...
 OK
 TIP: Use 'cf restage workshop' to ensure your env variable changes take effect
 ----
@@ -115,7 +117,7 @@ $ cf restart workshop
 +
 image::papertrail_5.png[]
 
-You can see how to connect to other third-party log management systems in the http://docs.cloudfoundry.org/devguide/services/log-management-thirdparty-svc.html[Cloud Foundry documentation].
+You can see how to connect to other third-party log management systems in the https://docs.pivotal.io/pivotalcf/devguide/services/log-management-thirdparty-svc.html[Cloud Foundry documentation].
 
 == Health Management
 
@@ -288,3 +290,5 @@ time                          event                 actor      description
 2015-08-11T08:54:22.00-0400   audit.app.map-route   admin
 2015-08-11T08:54:19.00-0400   audit.app.create      admin      instances: 1, memory: 512, state: STOPPED, environment_json: PRIVATE DATA HIDDEN
 ----
+
+link:/README.adoc#hands-on-labs-materials[Course Materials home]
