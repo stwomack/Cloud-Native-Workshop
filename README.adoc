@@ -63,9 +63,8 @@ $ git fetch --all
 
 == Speakers
 
-* Chris Busch, Platform Architect, St. Louis
-* Steve Womack, Platform Architect, St. Louis
 === St. Louis Workshop
 
 * Chris Busch, Platform Architect, cbusch@pivotal.io
 * Steve Womack, Platform Architect, swomack@pivotal.io
+
