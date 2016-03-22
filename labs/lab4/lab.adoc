@@ -64,13 +64,13 @@ These events are properly interleaved based on time, giving you an accurate pict
 $ cf logs workshop
 ----
 +
-You can try various things like refreshing the browser and triggering stop/start events to see logs being generated. Hit Ctrl-C to exit the `cf logs workshop` tailing of the logs.
+You can try various things like refreshing the browser and triggering stop/start events to see logs being generated. Press `Ctrl-C` to exit the `cf logs workshop` tailing of the logs.
 
 === For Operators (OPTIONAL)
 
-Application operators will also enjoy commands like `cf logs`, but are often interested in long-term retention, indexing, and analysis of logs as well. Cloud Foundry currently only provides short-term retention of logs. To meet these needs, Cloud Foundry provides the ability to http://docs.cloudfoundry.org/devguide/services/log-management.html[drain logs to third-party providers.]
+Application operators will also enjoy commands like `cf logs`, but are often interested in long-term retention, indexing, and analysis of logs as well. Cloud Foundry currently only provides short-term retention of logs. To meet these needs, Cloud Foundry provides the ability to https://docs.pivotal.io/pivotalcf/devguide/services/log-management.html[drain logs to third-party providers.]
 
-In this section, we'll drain logs to a very simple provider called https://papertrailapp.com[Papertrail].
+In this section, you will drain logs to a very simple provider called https://papertrailapp.com[Papertrail].
 
 . Visit https://papertrailapp.com and create a free account.
 
@@ -90,11 +90,11 @@ image::papertrail_3.png[]
 +
 image::papertrail_4.png[]
 
-. We'll use a Cloud Foundry http://docs.cloudfoundry.org/devguide/services/user-provided.html[user-provided service instance] to create the log drain for our application using the URL + Port provided by Papertrail:
+. We'll use a Cloud Foundry http://docs.pivotal.io/pivotalcf/devguide/services/user-provided.html[user-provided service instance] to create the log drain for our application using the URL + Port provided by Papertrail:
 +
 ----
 $ cf cups workshop-logs -l syslog://logs2.papertrailapp.com:43882
-Creating user provided service workshop-logs in org TELCO / space gammon as admin...
+Creating user provided service workshop-logs in org instructor-org / space development as instructor...
 OK
 ----
 
@@ -102,7 +102,7 @@ OK
 +
 ----
 $ cf bind-service workshop workshop-logs
-Binding service workshop-logs to app workshop in org TELCO / space gammon as admin...
+Binding service workshop-logs to app workshop in org instructor-org / space development as instructor...
 OK
 TIP: Use 'cf restage workshop' to ensure your env variable changes take effect
 ----
@@ -117,7 +117,7 @@ $ cf restart workshop
 +
 image::papertrail_5.png[]
 
-You can see how to connect to other third-party log management systems in the http://docs.cloudfoundry.org/devguide/services/log-management-thirdparty-svc.html[Cloud Foundry documentation].
+You can see how to connect to other third-party log management systems in the https://docs.pivotal.io/pivotalcf/devguide/services/log-management-thirdparty-svc.html[Cloud Foundry documentation].
 
 == Health Management
 
