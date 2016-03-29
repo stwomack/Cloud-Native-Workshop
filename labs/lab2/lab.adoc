@@ -33,12 +33,11 @@ The first is available on any instance of Cloud Foundry: the CLI. Just type:
 $ cf marketplace
 ----
 
-and you'll get a list of services, their available plans, and descriptions. On Pivotal Cloudfoundry, the ``free'' tier of plans is normally the first one listed.
+and you'll get a list of services, their available plans, and descriptions. On Pivotal Cloudfoundry, the __free__ tier of plans is normally the first one listed.
 
-The second way is specific to Pivotal Cloudfoundry's Apps Manager UI.
-If you haven't already, login to it by visiting http://console.devcloudwest.inbcu.com
+The second way is specific to Pivotal Cloudfoundry's Apps Manager UI. If you haven't already, login by visiting either http://console.run.pivotal.io or http://console.pcf1.fe.gopivotal.com, depending upon your environment.
 
-Click on the ''Marketplace'' link:
+Click on the __Marketplace__ link:
 
 image::lab1.png[]
 
@@ -49,8 +48,7 @@ image::lab2.png[]
 == Creating and Binding to a Service Instance
 
 . Let's begin by creating a MySQL service instance.
-From the Apps Manager UI service marketplace, select _MySQL for Pivotal Cloudfoundry_, select the free plan, and provide an instance name.
-In the drop-down list next to _Bind to App_ select your workshop application.
+From the Apps Manager UI service marketplace, select _MySQL for Pivotal Cloudfoundry_ in the Workshop PCF Instance or _ClearDB MySQL Database_ in the PWS instance, select the free plan. Provide an instance name, and then in the drop-down list next to _Bind to App_, select your workshop application.
 +
 image::lab3.png[]
 
@@ -69,29 +67,34 @@ Once the application is running again, revisit or refresh the browser tab where 
 In fact, our data is now being retrieved from that MySQL database!
 +
 ----
-Bound Services:
-{
-   "p-mysql":[
-      {
-         "name":"adam-db",
-         "label":"p-mysql",
-         "tags":[
-            "mysql",
-            "relational"
-         ],
-         "plan":"100mb-dev",
-         "credentials":{
-            "hostname":"10.68.105.55",
-            "port":3306,
-            "name":"cf_226845a3_1982_44ac_92b9_4b149af56bbc",
-            "username":"n67hpBOnKlsPUjKn",
-            "password":"hUa4WSrq2hPtBsuk",
-            "uri":"mysql://n67hpBOnKlsPUjKn:hUa4WSrq2hPtBsuk@10.68.105.55:3306/cf_226845a3_1982_44ac_92b9_4b149af56bbc?reconnect=true",
-            "jdbcUrl":"jdbc:mysql://10.68.105.55:3306/cf_226845a3_1982_44ac_92b9_4b149af56bbc?user=n67hpBOnKlsPUjKn&password=hUa4WSrq2hPtBsuk"
-         }
-      }
-   ]
-}
+"cleardb": [
+   {
+      "credentials": {
+      "jdbcUrl": "jdbc:mysql://us-cdbr-iron-east-03.cleardb.net/ad_ecd2bc6e669ed7e?user=b80f37014cf0ee&password=512f0f4b",
+      "uri": "mysql://b80f37014cf0ee:512f0f4b@us-cdbr-iron-east-03.cleardb.net:3306/ad_ecd2bc6e669ed7e?reconnect=true",
+      "name": "ad_ecd2bc6e669ed7e",
+      "hostname": "us-cdbr-iron-east-03.cleardb.net",
+      "port": "3306",
+      "username": "b80f37014cf0ee",
+      "password": "512f0f4b"
+    },
+    "syslog_drain_url": null,
+    "label": "cleardb",
+    "provider": null,
+    "plan": "spark",
+    "name": "studentDB",
+    "tags": [
+      "Data Stores",
+      "Cloud Databases",
+      "Developer Tools",
+      "Web-based",
+      "Data Store",
+      "Single Sign-On",
+      "Buyable",
+      "relational",
+      "mysql",
+      "Certified Applications"
+]
 ----
 
 . You may also verify your service was provisioned in the Apps Manager UI by clicking on your application and selecting the _Services_ tab.
@@ -107,3 +110,5 @@ $ cf services
 ----
 +
 You should now see the service created in step 1 listed and your application listed as a bound app.
+
+link:/README.adoc#hands-on-labs-materials[Course Materials home] | link:/labs/lab3/lab.adoc[Lab 3 - Operating Your Application]

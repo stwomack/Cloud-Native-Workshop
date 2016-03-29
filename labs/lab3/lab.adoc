@@ -12,7 +12,7 @@ In the next two labs we'll explore Pivotal Cloudfoundry operations.
 +
 ----
 $ cf scale -i 3 workshop
-Scaling app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
+Scaling app workshop in org instructor-org / space development as instructor...
 OK
 ----
 +
@@ -23,21 +23,21 @@ In reporting `OK`, the CLI is letting you know that the additional requested ins
 ====
 ----
 $ cf app workshop
-Showing health and status for app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
+Showing health and status for app workshop in org instructor-org / space development as instructor...
 OK
 
 requested state: started
-instances: 1/3
+instances: 3/3
 usage: 512M x 3 instances
-urls: workshop.vert.fe.gopivotal.com, workshop-queasier-backup.vert.fe.gopivotal.com
-last uploaded: Fri Aug 7 13:15:14 UTC 2015
+urls: workshop-haunted-slickenside.cfapps.io
+last uploaded: Mon Mar 21 21:38:44 UTC 2016
 stack: cflinuxfs2
-buildpack: java-buildpack=v3.0-offline-https://github.com/cloudfoundry/java-buildpack.git#3bd15e1 open-jdk-jre=1.8.0_40 spring-auto-reconfiguration=1.7.0_RELEASE tomcat-access-logging-support=2.4.0_RELEASE tomcat-instance=8.0.21 tomcat-lifecycle-support=2.4.0_REL...
+buildpack: java-buildpack=v3.6-https://github.com/cloudfoundry/java-buildpack.git#5194155 java-main java-opts open-jdk-like-jre=1.8.0_73 open-jdk-like-memory-calculator=2.0.1_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
 
-     state      since                    cpu    memory           disk           details
-#0   running    2015-08-07 11:33:21 AM   0.1%   477.9M of 512M   144.4M of 1G  <1>
-#1   starting   2015-08-07 12:42:56 PM   0.0%   0 of 0           0 of 0  <2>
-#2   starting   2015-08-07 12:42:56 PM   0.0%   0 of 0           0 of 0
+     state     since                    cpu    memory           disk           details
+#0   running   2016-03-21 04:43:55 PM   0.1%   349.9M of 512M   153.4M of 1G <1>
+#1   starting  2016-03-21 05:05:31 PM   0.1%   0 of 0           0 of 0 <2>
+#2   starting  2016-03-21 05:05:31 PM   0.0%   0 of 0           0 of 0
 ----
 <1> This application instance has completed the startup process and is actually able to accept requests.
 <2> This application instance is still starting and will not have any requests routed to it.
@@ -47,21 +47,21 @@ buildpack: java-buildpack=v3.0-offline-https://github.com/cloudfoundry/java-buil
 +
 ----
 $ cf app workshop
-Showing health and status for app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
+Showing health and status for app workshop in org instructor-org / space development as instructor...
 OK
 
 requested state: started
 instances: 3/3
 usage: 512M x 3 instances
-urls: workshop.vert.fe.gopivotal.com, workshop-queasier-backup.vert.fe.gopivotal.com
-last uploaded: Fri Aug 7 13:15:14 UTC 2015
+urls: workshop-haunted-slickenside.cfapps.io
+last uploaded: Mon Mar 21 21:38:44 UTC 2016
 stack: cflinuxfs2
-buildpack: java-buildpack=v3.0-offline-https://github.com/cloudfoundry/java-buildpack.git#3bd15e1 open-jdk-jre=1.8.0_40 spring-auto-reconfiguration=1.7.0_RELEASE tomcat-access-logging-support=2.4.0_RELEASE tomcat-instance=8.0.21 tomcat-lifecycle-support=2.4.0_REL...
+buildpack: java-buildpack=v3.6-https://github.com/cloudfoundry/java-buildpack.git#5194155 java-main java-opts open-jdk-like-jre=1.8.0_73 open-jdk-like-memory-calculator=2.0.1_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
 
      state     since                    cpu    memory           disk           details
-#0   running   2015-08-07 11:33:21 AM   0.1%   477.9M of 512M   144.4M of 1G
-#1   running   2015-08-07 12:43:04 PM   0.2%   396.2M of 512M   144.4M of 1G
-#2   running   2015-08-07 12:43:04 PM   0.2%   394.8M of 512M   144.4M of 1G
+#0   running   2016-03-21 04:43:55 PM   0.1%   349.9M of 512M   153.4M of 1G
+#1   running   2016-03-21 05:05:49 PM   0.1%   346.7M of 512M   153.4M of 1G
+#2   running   2016-03-21 05:05:49 PM   0.2%   346M of 512M     153.4M of 1G
 ----
 
 . Revisit the application route in the browser.
@@ -81,7 +81,7 @@ This makes for very dynamic and rapid reconfiguration!
 +
 ----
 $ cf scale -i 1 workshop
-Scaling app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
+Scaling app workshop in org instructor-org / space development as instructor...
 OK
 ----
 
@@ -89,19 +89,19 @@ OK
 +
 ----
 $ cf app workshop
-Showing health and status for app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
+Showing health and status for app workshop in org instructor-org / space development as instructor...
 OK
 
 requested state: started
 instances: 1/1
 usage: 512M x 1 instances
-urls: workshop.vert.fe.gopivotal.com, workshop-queasier-backup.vert.fe.gopivotal.com
-last uploaded: Fri Aug 7 13:15:14 UTC 2015
+urls: workshop-haunted-slickenside.cfapps.io
+last uploaded: Mon Mar 21 21:38:44 UTC 2016
 stack: cflinuxfs2
-buildpack: java-buildpack=v3.0-offline-https://github.com/cloudfoundry/java-buildpack.git#3bd15e1 open-jdk-jre=1.8.0_40 spring-auto-reconfiguration=1.7.0_RELEASE tomcat-access-logging-support=2.4.0_RELEASE tomcat-instance=8.0.21 tomcat-lifecycle-support=2.4.0_REL...
+buildpack: java-buildpack=v3.6-https://github.com/cloudfoundry/java-buildpack.git#5194155 java-main java-opts open-jdk-like-jre=1.8.0_73 open-jdk-like-memory-calculator=2.0.1_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
 
      state     since                    cpu    memory           disk           details
-#0   running   2015-08-07 11:33:21 AM   0.1%   477.9M of 512M   144.4M of 1G
+#0   running   2016-03-21 04:43:55 PM   0.1%   352.6M of 512M   153.4M of 1G
 ----
 +
 As you can see, we're back down to only one instance running, and it is in fact the original index 0 that we started with.
@@ -117,19 +117,19 @@ The first is available via the CLI. Just type:
 
 ----
 $ cf app workshop
-Showing health and status for app workshop in org TELCO / space zwickey as azwickey@pivotal.io...
+Showing health and status for app workshop in org instructor-org / space development as instructor...
 OK
 
 requested state: started
-instances: 3/3
-usage: 512M x 3 instances
-urls: workshop-leishmanial-preobligation.vert.fe.gopivotal.com
-last uploaded: Fri Sep 25 15:07:25 UTC 2015
+instances: 1/1
+usage: 512M x 1 instances
+urls: workshop-haunted-slickenside.cfapps.io
+last uploaded: Mon Mar 21 21:38:44 UTC 2016
 stack: cflinuxfs2
-buildpack: java-buildpack=v3.1.1-offline-https://github.com/cloudfoundry/java-buildpack#7a538fb java-main java-opts open-jdk-like-jre=1.8.0_51 open-jdk-like-memory-calculator=1.1.1_RELEASE spring-auto-reconfiguration=1.7.0_RELEASE
+buildpack: java-buildpack=v3.6-https://github.com/cloudfoundry/java-buildpack.git#5194155 java-main java-opts open-jdk-like-jre=1.8.0_73 open-jdk-like-memory-calculator=2.0.1_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
 
      state     since                    cpu    memory           disk           details
-#0   running   2015-09-25 11:11:33 AM   0.1%   411.6M of 512M   151.6M of 1G
+#0   running   2016-03-21 04:43:55 PM   0.1%   352.6M of 512M   153.4M of 1G
 ----
 
 and you'll see the list of routes in the section that says _urls_.
@@ -138,7 +138,7 @@ The second way is via the Apps Manager UI.  Click on the _Workshop_ application 
 
 image::lab2.png[]
 
-. We can easily add an additional route by clicking on _+ Map a Route_ and supplying the new hostname:
+. We can easily add an additional route by clicking on _+ Map a Route_ and supplying the new hostname. Use a unique name, not _instructor_, and then click _Map_:
 +
 image::lab3.png[]
 
@@ -160,54 +160,57 @@ image::blue-green.png[]
 
 == Accessing Container Contents
 
-. The contents of a deployed application container may be retrieved using the _files_ command within the CLI.  If the path supplied to the command represents a folder, the contents of the folder are retreived:
-+
-====
-----
-$ cf files workshop
-Getting files for app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
-OK
-
-.bash_logout                              220B
-.bashrc                                   3.6K
-.profile                                  675B
-app/                                         -
-logs/                                        -
-run.pid                                     3B
-staging_info.yml                          1.1K
-tmp/
-
-$ cf files workshop app/    <1>
-Getting files for app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
-OK
-
-.java-buildpack/                             -
-.java-buildpack.log                     136.6K
-META-INF/                                    -
-WEB-INF/                                     -
-resources/                                   -                                         -
-----
-<1> The actual binaries of the application can be found in the /app folder
-====
-. We can also retrieve the contents of a file using the same command if the path supplied is a path to a file:
+. The contents of a deployed application and a specific container may be viewed with the _cf ssh_ (secure shell) command within the CLI, as long as SSH is allowed for the specified application. Use the following command to access the application container:
 +
 ----
-$ cf files workshop staging_info.yml
-Getting files for app workshop in org TELCO / space gammon as jtgammon@pivotal.io...
-OK
-
----
-buildpack_path: /var/vcap/data/dea_next/admin_buildpacks/920c5763-8b8e-4ea3-b903-c7b8b78947c5_a300c3fca530dc16345dbd6feb26b13897d05265
-detected_buildpack: java-buildpack=v3.0-offline-https://github.com/cloudfoundry/java-buildpack.git#3bd15e1
-  open-jdk-jre=1.8.0_40 spring-auto-reconfiguration=1.7.0_RELEASE tomcat-access-logging-support=2.4.0_RELEASE
-  tomcat-instance=8.0.21 tomcat-lifecycle-support=2.4.0_REL...
-start_command: JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR
-  -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh -Xmx382293K
-  -Xms382293K -XX:MaxMetaspaceSize=64M -XX:MetaspaceSize=64M -Xss995K -Daccess.logging.enabled=false
-  -Dhttp.port=$PORT" $PWD/.java-buildpack/tomcat/bin/catalina.sh run
-effective_procfile:
-  web: JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR
-    -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh -Xmx382293K
-    -Xms382293K -XX:MaxMetaspaceSize=64M -XX:MetaspaceSize=64M -Xss995K -Daccess.logging.enabled=false
-    -Dhttp.port=$PORT" $PWD/.java-buildpack/tomcat/bin/catalina.sh run
+$ cf ssh workshop <1>
+vcap@f8eg5grhrgj:~$
 ----
+<1> If you have multiple instances of an application, `cf ssh -i 2 myapp` would get into the specific instance.
++
+. Once SSH'd into the container, execute the `ls -al` command to see the contents of the `/home/vcap` directory.
++
+----
+vcap@f8eg5grhrgj:~$ ls -al
+total 40
+drwx------ 6 vcap vcap 4096 Mar 22 13:36 .
+drwxr-xr-x 4 root root 4096 Mar 21 21:43 ..
+drwxr-xr-x 9 vcap root 4096 Mar 21 21:43 app
+-rw------- 1 vcap vcap   18 Mar 22 13:36 .bash_history
+-rw-r--r-- 1 vcap vcap  220 Apr  9  2014 .bash_logout
+-rw-r--r-- 1 vcap vcap 3637 Apr  9  2014 .bashrc
+drwxr-xr-x 2 vcap vcap 4096 Mar 21 21:43 logs
+-rw-r--r-- 1 vcap vcap  675 Apr  9  2014 .profile
+-rw-r--r-- 1 vcap vcap  943 Mar 21 21:43 staging_info.yml
+drwxr-xr-x 3 vcap vcap 4096 Mar 21 21:43 tmp
+----
+. To see the contents of the application directory, run the following command:
++
+----
+vcap@f8eg5grhrgj:~$ ls -al app <1>
+total 40
+drwxr-xr-x 9 vcap root 4096 Mar 21 21:43 .
+drwx------ 6 vcap vcap 4096 Mar 22 13:36 ..
+-rw-r--r-- 1 vcap vcap   28 Mar 21 21:38 application.properties
+drwxr-xr-x 3 vcap vcap 4096 Mar 21 21:38 io
+drwxr-xr-x 4 vcap vcap 4096 Mar 21 21:43 .java-buildpack
+drwxr-xr-x 2 vcap vcap 4096 Mar 21 21:38 lib
+drwxr-xr-x 3 vcap vcap 4096 Mar 21 21:38 META-INF
+drwxr-xr-x 3 vcap vcap 4096 Mar 21 21:38 org
+drwxr-xr-x 5 vcap vcap 4096 Mar 21 21:38 static
+drwxr-xr-x 2 vcap vcap 4096 Mar 21 21:38 templates
+----
+<1> The actual binaries of the application can be found in the `/app` folder
++
+
+. In addition to `cf ssh`, you can use other SSH clients such as `ssh`, `scp`, or `sftp` to access your application, as long as you have SSH permissions. See the https://docs.cloudfoundry.org/devguide/deploy-apps/ssh-apps.html[Application SSH Access without cf CLI] documentation for more information.
+
+. Type `exit` at the command prompt to exit SSH and return to your local prompt.
++
+----
+vcap@f8eg5grhrgj:~$ exit
+exit
+$
+----
+
+link:/README.adoc#hands-on-labs-materials[Course Materials home] | link:/labs/lab4/lab.adoc[Lab 4 - Monitoring your Application]
